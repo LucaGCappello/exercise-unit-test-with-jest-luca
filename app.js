@@ -1,11 +1,3 @@
-// We declare the function with the exact name "fromEuroToDollar"
-const fromEuroToDollar = function(valueInEuro) {
-    // Convert the given valueInEuro to dollars
-    let valueInDollar = valueInEuro * 1.07;
-    // return the dollar value
-    return valueInDollar;
-}
-
 let oneEuroIs = {
     "JPY": 156.5, // japan yen
     "USD": 1.07, // us dollar
@@ -14,4 +6,30 @@ let oneEuroIs = {
 const sum = (a,b) => {
     return a + b
 }
-module.exports = { sum, fromEuroToDollar }
+
+// We declare the function with the exact name "fromEuroToDollar"
+const fromEuroToDollar = function(valueInEuro) {
+    // Convert the given valueInEuro to dollars
+    let valueInDollar = valueInEuro * oneEuroIs["USD"];
+    // return the dollar value
+    return valueInDollar;
+};
+// Value in yen
+const fromDollarToYen = function (valueinDollar) {
+    let valueInEuro = valueinDollar / oneEuroIs["USD"];
+    let valueInYen = valueInEuro * oneEuroIs["JPY"];
+    return valueInYen;
+};
+// Value in pound
+const fromYenToPound = function (valueInYen) {
+    let valueInEuro = valueInYen / oneEuroIs["JPY"];
+    let valueInPound = valueInEuro * oneEuroIs["GBP"];
+    return valueInPound;
+};
+
+module.exports = { sum, fromEuroToDollar, fromDollarToYen, fromYenToPound };
+
+
+
+
+
